@@ -1,3 +1,27 @@
+firebase-authenticator
+=======
+
+Prerequisite
+-------
+- [Google AppEngine](https://cloud.google.com/appengine)
+- [Google Endpoints](https://cloud.google.com/endpoints)
+- [Google Guice](https://github.com/google/guice)
+  - https://github.com/google/guice/wiki/GoogleAppEngine
+- [Firebase Admin SDK](https://firebase.google.com/docs/admin/setup)
+- [Microservice Auth](https://github.com/ceosilvajr/microservice-auth)
+
+Changes you should make
+-------
+- `/src/main/webapp/WEB-INF/api-firebase.json`
+- `/src/main/webapp/WEB-INF/appengine-web.xml`
+
+How to Deploy
+-------
+- Development
+  - `$ gradle appengineRun`
+- Production
+  - `$ gradle appengineDeploy`
+
 License
 -------
 
