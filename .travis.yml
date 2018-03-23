@@ -1,5 +1,5 @@
 language: java
-install: gradle clean build check
+install: gradle clean build
 notifications:
   email:
       - ceosilvajr@gmail.com

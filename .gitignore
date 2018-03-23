@@ -1,13 +1,9 @@
 # Created by .ignore support plugin (hsz.mobi)
 ### Gradle template
 .gradle
-io.mycape.api.model.assertions.build/
 
 # Ignore Gradle GUI config
 gradle-app.setting
-
-# Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
-!gradle-wrapper.jar
 
 # Cache of project
 .gradletasknamecache
@@ -75,7 +71,6 @@ hs_err_pid*
 ### AppEngine template
 # Google App Engine generated folder
 appengine-generated/
-/io.mycape.api.model.assertions.build/
 /build/
 /build/tmp/war/MANIFEST.MF
 /.idea/
