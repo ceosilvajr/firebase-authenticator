@@ -14,10 +14,10 @@
     <property name="firebase.host" value="$projectHost"/>
     <property name="service.auth.name.header" value="X-AUTH"/>
     <property name="service.auth.name.request" value="apiKey"/>
-    <property name="service.secretKey" value="dGhpc0lzQUVuY29kZWRTZWNyZXRLZXlGb3JQU0VXYXRjaGVy"/>
-    <property name="service.appKey" value="dGhpc0lzQUVuY29kZWRBcHBLZXlGb3JQU0VXYXRjaGVy"/>
-    <property name="service.appId" value="dGhpc0lzQUVuY29kZWRBcHBJZEZvclBTRVdhdGNoZXI="/>
-    <property name="service.apiKey" value="dGhpc0lzQUVuY29kZWRBcGlLZXlGb3JQU0VXYXRjaGVy"/>
+    <property name="service.secretKey" value="$secretKey"/>
+    <property name="service.appKey" value="$appKey"/>
+    <property name="service.appId" value="$appId="/>
+    <property name="service.apiKey" value="$apiKey"/>
   </system-properties>
   <resource-files>
     <include path="/**.json"/>
