@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/ceosilvajr/firebase-authenticator.svg?branch=master)](https://travis-ci.org/ceosilvajr/firebase-authenticator)
+
 firebase-authenticator
 =======
 
