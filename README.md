@@ -21,7 +21,15 @@ How to Deploy
   - `$ gradle appengineRun`
 - Production
   - `$ gradle appengineDeploy`
+  
+How to use
+-------
 
+1. Generate firebase client [token](https://firebase.google.com/docs/auth/admin/verify-id-tokens)
+   - I created sample web application to generate token using firebase hosting see [firebase-web-token](https://github
+   .com/ceosilvajr/firebase-web-token)
+2. Use this postman [collection](https://documenter.getpostman.com/view/18093/collection/RVncgHei) to test
+  
 License
 -------
 
