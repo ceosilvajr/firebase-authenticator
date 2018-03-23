@@ -1,0 +1,88 @@
+/*
+ * Copyright (c) 2018. ceosilvajr All rights reserved
+ */
+
+allprojects {
+  repositories {
+    jcenter()
+    mavenCentral()
+    repositories {
+      maven { url 'https://jitpack.io' }
+    }
+  }
+}
+
+buildscript {
+
+  ext {
+    appengineGradlePlugin = '1.3.2'
+    endpointsGradlePlugin = '1.0.0'
+    coverallsGradlePlugin = '2.6.3'
+    cpdGradlePlugin = '0.5'
+  }
+
+  repositories {
+    jcenter()
+    mavenCentral()
+    maven { url 'https://maven-central.storage.googleapis.com' }
+    maven { url "https://oss.sonatype.org/content/repositories/releases/" }
+    maven { url 'http://oss.jfrog.org/artifactory/oss-snapshot-local' }
+  }
+
+  dependencies {
+    // App Engine Gradle plugin
+    classpath group: 'com.google.cloud.tools', name: 'appengine-gradle-plugin',
+            version: "$rootProject.appengineGradlePlugin"
+    // Endpoints Frameworks Gradle plugin
+    classpath group: 'com.google.cloud.tools', name: 'endpoints-framework-gradle-plugin',
+            version: "$rootProject.endpointsGradlePlugin"
+    // https://plugins.gradle.org/plugin/com.github.kt3k.coveralls
+    classpath group: 'org.kt3k.gradle.plugin', name: 'coveralls-gradle-plugin',
+            version: "$rootProject.coverallsGradlePlugin"
+    // https://github.com/aaschmid/gradle-cpd-plugin
+    classpath group: 'de.aaschmid.gradle.plugins', name: 'gradle-cpd-plugin', version: "$rootProject.cpdGradlePlugin"
+  }
+}
+
+ext {
+  microserviceAuth = 'develop-SNAPSHOT'
+  firebaseAdmin = '5.8.0'
+  frameworkGuice = '2.0.7'
+  testNg = '6.9.12'
+  mockito = '2.13.0'
+  javafaker = '0.14'
+}
+
+apply plugin: 'java'
+apply plugin: 'war'
+apply plugin: 'com.google.cloud.tools.endpoints-framework-server'
+apply plugin: 'com.google.cloud.tools.appengine'
+
+dependencies {
+  compile group: 'com.google.endpoints', name: 'endpoints-framework-guice', version: "$rootProject.frameworkGuice"
+  compile group: 'com.google.endpoints', name: 'endpoints-framework', version: "$rootProject.frameworkGuice"
+  compile group: 'com.google.firebase', name: 'firebase-admin', version: "$rootProject.firebaseAdmin"
+  compile group: 'com.github.ceosilvajr', name: 'microservice-auth', version: "$rootProject.microserviceAuth"
+
+  testCompile group: 'org.testng', name: 'testng', version: "$rootProject.testNg"
+  testCompile group: 'org.mockito', name: 'mockito-core', version: "$rootProject.mockito"
+  testCompile group: 'com.github.javafaker', name: 'javafaker', version: "$rootProject.javafaker"
+}
+
+appengine {
+  deploy {
+    promote = true
+    stopPreviousVersion = true
+    version = 'dev'
+  }
+}
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+
+def skip_quality_check = project.hasProperty('check') && check == 'false'
+println("skip_quality_check: " + skip_quality_check)
+
+if (!skip_quality_check) {
+  apply from: "$rootDir/check/quality.gradle"
+}

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2018. ceosilvajr All rights reserved
+  -->
+<appengine-web-app xmlns="http://appengine.google.com/ns/1.0">
+  <application>$projectId</application>
+  <threadsafe>true</threadsafe>
+  <runtime>java8</runtime>
+  <system-properties>
+    <property name="appengine.api.urlfetch.defaultDeadline" value="60"/>
+    <property name="java.util.logging.config.file" value="WEB-INF/logging.properties"/>
+    <property name="user.timezone" value="Asia/Manila"/>
+    <property name="firebase.credentials.path" value="/WEB-INF/api-firebase.json"/>
+    <property name="firebase.host" value="$projectHost"/>
+    <property name="service.auth.name.header" value="X-AUTH"/>
+    <property name="service.auth.name.request" value="apiKey"/>
+    <property name="service.secretKey" value="dGhpc0lzQUVuY29kZWRTZWNyZXRLZXlGb3JQU0VXYXRjaGVy"/>
+    <property name="service.appKey" value="dGhpc0lzQUVuY29kZWRBcHBLZXlGb3JQU0VXYXRjaGVy"/>
+    <property name="service.appId" value="dGhpc0lzQUVuY29kZWRBcHBJZEZvclBTRVdhdGNoZXI="/>
+    <property name="service.apiKey" value="dGhpc0lzQUVuY29kZWRBcGlLZXlGb3JQU0VXYXRjaGVy"/>
+  </system-properties>
+  <resource-files>
+    <include path="/**.json"/>
+    <include path="/**.html"/>
+    <include path="/**.jsp"/>
+  </resource-files>
+</appengine-web-app>
