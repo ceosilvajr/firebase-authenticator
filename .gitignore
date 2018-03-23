@@ -74,3 +74,4 @@ appengine-generated/
 /build/
 /build/tmp/war/MANIFEST.MF
 /.idea/
+!/gradle/wrapper/gradle-wrapper.jar
